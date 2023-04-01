@@ -7,8 +7,21 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #0b2500;
+    color: white;
+}
+
 .header {
     display: flex;
     width: 100%;
     justify-content: center;
+}
+
+.product-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    margin-top: 48px;
 }

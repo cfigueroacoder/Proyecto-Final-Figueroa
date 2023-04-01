@@ -3,6 +3,7 @@
     list-style: none;
     margin: 0 auto;
     padding: 8px 10px 12px;
+    background-color: rgb(26, 107, 53);
 }
 
 .nav-cat {
@@ -16,6 +17,7 @@
 
 .nav-cat:hover {
     cursor: pointer;
+    color: rgba(255, 255, 255, 0.582)
 }
 
 .nav-brand {
