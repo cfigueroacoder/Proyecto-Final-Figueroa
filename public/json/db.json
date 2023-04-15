@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "Notebook", "vendor": "lenovo", "value": 1000, "img": "default.jpg" },
+    { "id": 2, "name": "MacBook", "vendor": "Apple", "value": 1000, "img": "default.jpg"},
+    { "id": 3, "name": "iPhone", "vendor": "Apple", "value": 1000, "img": "default.jpg"}
+]

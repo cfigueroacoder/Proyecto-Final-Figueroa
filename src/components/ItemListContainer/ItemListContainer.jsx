@@ -1,9 +1,23 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { ItemList } from '../ItemList/ItemList';
 
-export const ItemListContainer = ({message}) => {
+import './ItemListContainer.css';
+
+export const ItemListContainer = () => {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        fetch('./json/db.json')
+            .then(response => response.json())
+                .then(products => {
+                    setProducts(products)
+                })
+    }, [])
+
     return (
-        <div>
-            {message}
+        <div className='row product-container'>
+            <ItemList products={products} />
         </div>
     );
 }
