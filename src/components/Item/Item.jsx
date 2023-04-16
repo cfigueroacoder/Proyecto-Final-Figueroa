@@ -8,6 +8,7 @@ export const Item = ({item}) => {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.vendor}</p>
                 <p className="card-text">$ {item.value}</p>
+                <button className='btn btn-dark'>Ver Producto</button>
             </div>
         </div>
     );

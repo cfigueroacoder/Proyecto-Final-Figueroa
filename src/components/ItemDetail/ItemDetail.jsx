@@ -1,6 +1,10 @@
 import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({item}) => {
+    const onAdd = (contador) => { //Agregar al carrito
+        console.log(contador, item)
+    }
+
     return (
         <div className='row g-0'>
             <div className="col-md-4">
@@ -11,7 +15,7 @@ export const ItemDetail = ({item}) => {
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">Marca: {item.vendor}</p>
                     <p className="card-text">Stock: {item.stock}</p>
-                    <ItemCount  initialValue={1} min={1} max={item.stock}/>
+                    <ItemCount  initialValue={1} min={1} max={item.stock} onAdd={onAdd}/>
                 </div>
             </div>
         </div>
