@@ -1,6 +1,11 @@
 [
-    { "id": 1, "name": "Notebook", "vendor": "Lenovo", "value": 1000, "img": "./img/laptop-lenovo.png", "stock": 10 },
-    { "id": 2, "name": "MacBook", "vendor": "Apple", "value": 1000, "img": "./img/macbook.png", "stock": 4},
-    { "id": 3, "name": "iPhone", "vendor": "Apple", "value": 1000, "img": "./img/iphone.png", "stock": 32},
-    { "id": 4, "name": "Smart TV", "vendor": "Sony", "value": 1000, "img": "./img/smarttv-sony.png", "stock": 8}
+    { "id": 1001, "category": "notebook", "name": "Notebook", "vendor": "Lenovo", "value": 1000, "img": "./img/laptop-lenovo.png", "stock": 10 },
+    { "id": 1002, "category": "notebook", "name": "MacBook", "vendor": "Apple", "value": 1000, "img": "./img/macbook.png", "stock": 4},
+
+    { "id": 2001, "category": "phone", "name": "iPhone", "vendor": "Apple", "value": 1000, "img": "./img/iphone.png", "stock": 32},
+    { "id": 2002, "category": "phone", "name": "Galaxy S10", "vendor": "Samsung", "value": 1000, "img": "./img/samsung-galaxy-s10.png", "stock": 50},
+
+    { "id": 3001, "category": "tv", "name": "Smart TV", "vendor": "Sony", "value": 1000, "img": "./img/smarttv-sony.png", "stock": 8},
+    
+    { "id": 4001, "category": "monitor", "name": "F24T35", "vendor": "Samsung", "value": 68950, "img": "./img/monitor-led-samsung.png", "stock": 10}
 ]

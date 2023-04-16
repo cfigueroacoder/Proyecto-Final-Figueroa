@@ -4,6 +4,7 @@
     margin: 0 auto;
     padding: 8px 10px 12px;
     background-color: rgb(26, 107, 53);
+    justify-content: center;
 }
 
 .nav-cat {

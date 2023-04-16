@@ -8,7 +8,7 @@ export const ItemDetailContainer = () => {
         fetch('./json/db.json')
             .then(response => response.json())
                 .then(query => {
-                    const item = query.find(queryItem => queryItem.id === 2)
+                    const item = query.find(queryItem => queryItem.id === 1001)
                     setItem(item)
                 })
     }, [])
