@@ -1,3 +1,5 @@
+import { ItemCount } from "../ItemCount/ItemCount";
+
 export const ItemDetail = ({item}) => {
     return (
         <div className='row g-0'>
@@ -8,8 +10,8 @@ export const ItemDetail = ({item}) => {
                 <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">Marca: {item.vendor}</p>
-                    <p className="card-text">Precio: {item.value}</p>
-                    <button className="btn btn-secondary">Agregar al carrito</button>
+                    <p className="card-text">Stock: {item.stock}</p>
+                    <ItemCount  initialValue={1} min={1} max={item.stock}/>
                 </div>
             </div>
         </div>
