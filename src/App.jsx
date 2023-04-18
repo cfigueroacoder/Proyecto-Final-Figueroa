@@ -15,8 +15,9 @@ export function App() {
           <Routes>
             <Route path='/' element={<ItemListContainer/>} />
             <Route path='/catalog/:category' element={<ItemListContainer/>} />
-            <Route path='/product/:id' element={<ItemDetailContainer/>} />
-            <Route path='/cart' element={<Cart/>} />
+            <Route path='/item/:id' element={<ItemDetailContainer/>} />
+            <Route path='/' element={<Cart/>} />
+            <Route path='/*' element={<h1>404 - Página no encontrada</h1>} />
           </Routes>
       </BrowserRouter>
     );
