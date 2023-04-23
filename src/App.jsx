@@ -1,7 +1,12 @@
 import './App.css';
 
+//Router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+//Context
+import { DarkModeProvider } from './context/DarkModeContext';
+
+//Components
 import { Navbar } from "./components/Navbar/Navbar.jsx";
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer.jsx'
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
@@ -11,7 +16,8 @@ export function App() {
   
   return (
       <BrowserRouter>
-        <Navbar />
+        <DarkModeProvider>
+          <Navbar />
           <Routes>
             <Route path='/' element={<ItemListContainer/>} />
             <Route path='/catalog/:category' element={<ItemListContainer/>} />
@@ -19,6 +25,7 @@ export function App() {
             <Route path='/checkout/' element={<Checkout/>} />
             <Route path='/*' element={<h1>404 - Página no encontrada</h1>} />
           </Routes>
+        </DarkModeProvider>
       </BrowserRouter>
     );
 }

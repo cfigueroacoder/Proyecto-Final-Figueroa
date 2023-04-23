@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ItemList } from '../ItemList/ItemList';
+import { useDarkModeContext } from '../../context/DarkModeContext';
 
 import './ItemListContainer.css';
 
@@ -9,9 +10,10 @@ export const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
     const { category } = useParams()
+    const { darkMode } = useDarkModeContext()
+    console.log(darkMode)
 
-    useEffect(() => {        
-        console.log(category)
+    useEffect(() => {
         fetch('/json/db.json')
             .then(response => response.json())
                 .then(query => {

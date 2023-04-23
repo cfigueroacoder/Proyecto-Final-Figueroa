@@ -12,6 +12,20 @@ body {
     color: white;
 }
 
+.darkMode {
+    background-color: black;
+}
+
+.cardBody {
+    background-color: white;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.cardBodyDark {
+    background-color: hsl(0, 0%, 33%);
+}
+
 .header {
     display: flex;
     width: 100%;
