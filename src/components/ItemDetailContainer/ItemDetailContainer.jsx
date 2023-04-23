@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
                     const item = query.find(queryItem => queryItem.id === parseInt(id))
                     setItem(item)
                 })
-    }, [])
+    }, [id])
     return (
         <div className="card mb-3 container itemDetail">
             <ItemDetail item={item} />
