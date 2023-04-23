@@ -37,3 +37,8 @@
     margin: auto;
     margin-right: 2px;
 }
+
+.cart-amount{
+    position: relative;
+    left: 15%;
+}

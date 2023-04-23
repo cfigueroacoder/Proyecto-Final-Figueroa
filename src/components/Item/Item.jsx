@@ -1,10 +1,8 @@
-import './item.css'
-
 import { Link } from 'react-router-dom';
 
 export const Item = ({item}) => {
     return (
-        <div className="card" style={{width: '18rem'}}>
+        <div className="card catalog-card">
             <img src={`/img/${item.img}`} className="card-img-top" alt={`Imagen de ${item.name}`} />
             <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>

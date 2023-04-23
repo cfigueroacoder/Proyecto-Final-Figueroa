@@ -41,7 +41,7 @@ export const CartProvider = (props) => {
     }
 
     const getTotalPrice = () => {
-        return cart.reduce((accum, item) => accum += item.amount * item.price)
+        return cart.reduce((accum, item) => accum += (item.amount * item.value), 0)
     }    
 
     console.log(cart)

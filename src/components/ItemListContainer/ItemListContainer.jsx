@@ -28,7 +28,7 @@ export const ItemListContainer = () => {
 
     return (
         <div className='row product-container'>
-            <ItemList products={products} />
+            <ItemList products={products} template="Item" />
         </div>
     );
 }
