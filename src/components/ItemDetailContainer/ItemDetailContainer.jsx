@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { useParams } from "react-router-dom";
+import { getProduct } from "../../firebase/firebase";
 
 export const ItemDetailContainer = () => {
 
@@ -8,13 +9,9 @@ export const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        fetch('/json/db.json')
-            .then(response => response.json())
-                .then(query => {
-                    const item = query.find(queryItem => queryItem.id === parseInt(id))
-                    setItem(item)
-                })
+        getProduct(id).then(query => { setItem(query) })
     }, [id])
+    
     return (
         <div className="card mb-3 container itemDetail">
             <ItemDetail item={item} />

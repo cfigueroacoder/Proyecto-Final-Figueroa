@@ -13,7 +13,10 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import { Checkout } from './components/Checkout/Checkout';
 import { Cart } from './components/Cart/Cart';
 
+import { createProducts, getProducts, getProduct } from './firebase/firebase';
+
 export function App() {
+  //createProducts()
   
   return (
       <BrowserRouter>

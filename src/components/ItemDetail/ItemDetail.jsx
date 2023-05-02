@@ -11,7 +11,7 @@ export const ItemDetail = ({item}) => {
     return (
         <div className='row g-0'>
             <div className="col-md-4">
-                <img src={`/img/${item.img}`} alt={`Imagen de ${item.name}`} className="img-fluid rounded-start" />
+                <img src={item.img} alt={`Imagen de ${item.name}`} className="img-fluid rounded-start" />
             </div>
             <div className="col-md-8">
                 <div className="card-body">
