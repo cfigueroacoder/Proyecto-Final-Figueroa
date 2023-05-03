@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //Context
 import { DarkModeProvider } from './context/DarkModeContext';
 
+//React Toastify
+import { ToastContainer } from 'react-toastify';
+
 //Components
 import { Navbar } from "./components/Navbar/Navbar.jsx";
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer.jsx'
@@ -13,15 +16,14 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import { Checkout } from './components/Checkout/Checkout';
 import { Cart } from './components/Cart/Cart';
 
-import { createProducts, getProducts, getProduct } from './firebase/firebase';
-
 export function App() {
-  //createProducts()
+  //initDB()
   
   return (
       <BrowserRouter>
         <DarkModeProvider>
           <Navbar />
+          <ToastContainer />
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/catalog/:category' element={<ItemListContainer />} />

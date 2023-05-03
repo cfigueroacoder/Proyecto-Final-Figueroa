@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
 
 export const Cart = () => {
-    const { cart, getTotalPrice, emptyCart } = useCartContext()
+    const { cart, getTotal, emptyCart } = useCartContext()
     return (
         <>
             {
@@ -16,7 +16,7 @@ export const Cart = () => {
                     <div className="container cartContainer">
                         {<ItemList products={cart} template={"itemCart"}/>}
                         <div className="cartButtons">
-                            <p>Resumen de la compra: ${getTotalPrice()}</p>
+                            <p>Resumen de la compra: ${getTotal()}</p>
                             <button className="btn btn-danger" onClick={() => emptyCart()}>Vaciar Carrito</button>
                             <button className="btn btn-dark"><Link to={"/"} className="nav-link">Seguir Comprando</Link></button>
                             <button className="btn btn-dark"><Link to={"/checkout"} className="nav-link">Finalizar Compra</Link></button>

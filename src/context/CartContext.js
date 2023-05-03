@@ -8,8 +8,6 @@ export const CartProvider = (props) => {
 
     const [cart, setCart] = useState([])
 
-    //buscar producto
-
     const isInCart = (queryID) => {
         return cart.some(item => item.id === queryID)
     }
@@ -36,18 +34,16 @@ export const CartProvider = (props) => {
 
     const emptyCart = () => setCart([])
 
-    const getItemQuantity = () => {
+    const getItemAmount = () => {
         return cart.reduce((accum, item) => accum += item.amount, 0)
     }
 
-    const getTotalPrice = () => {
+    const getTotal = () => {
         return cart.reduce((accum, item) => accum += (item.amount * item.value), 0)
-    }    
-
-    console.log(cart)
+    }
 
     return(
-        <CartContext.Provider value={{ cart, addItem, removeItem, emptyCart, getItemQuantity, getTotalPrice }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, emptyCart, getItemAmount, getTotal }}>
             {props.children}
         </CartContext.Provider>
     )

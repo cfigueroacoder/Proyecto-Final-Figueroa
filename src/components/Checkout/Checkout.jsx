@@ -1,21 +1,44 @@
 import { useRef } from 'react';
 import { useCartContext } from '../../context/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createOrder, getProduct, updateProduct } from '../../firebase/firebase';
+
+
 
 export const Checkout = () => {
 
     const clientForm = useRef() // Crear una referencia para consultar los valores actuales del formulario
-    const { cart, getTotalPrice, emptyCart } = useCartContext()
+    const { cart, getTotal, emptyCart } = useCartContext()
+
+    let navigate = useNavigate()
+
     const submitForm = (e) => {
         //Consultar los datos del formulario
         e.preventDefault()
-
         const clientFormData = new FormData(clientForm.current) // pasar de HTML a objeto iterable
         const clientData = Object.fromEntries(clientFormData) // pasar de objeto iterable a objeto simple
 
-        console.log(clientData)
+        const aux =[...cart]
+        aux.forEach(item => {
+            getProduct(item.id)
+                .then(queryItem => {
+                    if(queryItem.stock >= item.amount) {
+                        queryItem.stock -= item.amount
+                        updateProduct(queryItem.id, queryItem)
+                    } else {
+                        console.log(`stock insuficiente para producto de id: ${queryItem.id}`)
+                    }
+                })
+        })
 
-        e.target.reset()
+        createOrder(clientData, getTotal(), aux.map(item => ({ id: item.id, amount: item.amount, value: item.value })), new Date().toISOString())
+            .then(order => { 
+                console.log(`Muchas gracias por comprar con nosotros, su ID de compra es ${order.id}, en breve nos contactaremos para coordinar el envio`)
+                emptyCart()
+                e.target.reset()
+                navigate('/')
+             })
+             .catch(e => console.error(e))        
     }
 
     return (

@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 //Consultar DB
 const db = getFirestore()
 
-export const createProducts = async () => {
+export const initDB = async () => {
     const query = await fetch('./json/db.json')
     const items = await query.json()
 
@@ -35,17 +35,40 @@ export const createProducts = async () => {
 
 export const getProducts = async () => {
     const query = await getDocs(collection(db, 'products'))
-    const items = query.docs.map(item => {
+    const products = query.docs.map(item => {
         return {...item.data(), id: item.id}
     })
-    return items
+    return products
 }
 
 export const getProduct = async (id) => {
     const query = await getDoc(doc(db, 'products', id))
-    const item = { ...query.data(), id: query.id }
-    return item
+    const product = { ...query.data(), id: query.id }
+    return product
 }
 
- 
-//Funciones para trabajar con Firebase
+export const createOrder = async (client, total, cart, date) => {
+    const order = await addDoc(collection(db, 'orders'), {
+        client: client,
+        items: cart,
+        total: total,
+        date: date
+    })
+    return order
+}
+
+export const getOrder = async (id) => {
+    const query = await getDoc(doc(db, 'orders', id))
+    const order = { ...query.data(), orderID: id}
+    return order
+}
+
+export const updateProduct = async (id, info) => {
+    const state = await updateDoc(doc(db, 'products', id), info)
+    console.log(state)
+}
+
+export const deleteProduct = async (id) => {
+    const state = await deleteDoc(doc(db, 'products', id))
+    console.log(state)
+}
