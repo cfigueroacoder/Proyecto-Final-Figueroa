@@ -1,6 +1,6 @@
 # Tienda Click Derecho
 
-_Ecommerce react para [Coderhouse](https://coderhouse.com/), comisióon 39655_
+_Ecommerce react para [Coderhouse](https://coderhouse.com/), comisión 39655_
 
 ### 📃  Requerimientos
 

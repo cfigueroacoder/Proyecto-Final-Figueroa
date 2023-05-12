@@ -3,9 +3,6 @@ import 'react-toastify/dist/ReactToastify.css';
 //Router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-//Context
-import { DarkModeProvider } from './context/DarkModeContext';
-
 //React Toastify
 import { ToastContainer } from 'react-toastify';
 
@@ -21,18 +18,16 @@ export function App() {
   
   return (
       <BrowserRouter>
-        <DarkModeProvider>
-          <Navbar />
-          <ToastContainer />
-          <Routes>
-            <Route path='/' element={<ItemListContainer />} />
-            <Route path='/catalog/:category' element={<ItemListContainer />} />
-            <Route path='/item/:id' element={<ItemDetailContainer />} />
-            <Route path='/checkout/' element={<Checkout />} />
-            <Route path='/cart/' element={<Cart />} />
-            <Route path='/*' element={<h1>404 - Página no encontrada</h1>} />
-          </Routes>
-        </DarkModeProvider>
+        <Navbar />
+        <ToastContainer />
+        <Routes>
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/catalog/:category' element={<ItemListContainer />} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
+          <Route path='/checkout/' element={<Checkout />} />
+          <Route path='/cart/' element={<Cart />} />
+          <Route path='/*' element={<h1>404 - Página no encontrada</h1>} />
+        </Routes>
       </BrowserRouter>
     );
 }

@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, getDoc, getDocs, deleteDoc, updateDoc, collection, doc } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDrjMkM-jxWyUhEtW_Xx2JZQhZQe27yjgU",
+  apiKey: process.env.API_KEY,
   authDomain: "tienda-click-derecho.firebaseapp.com",
   projectId: "tienda-click-derecho",
   storageBucket: "tienda-click-derecho.appspot.com",
