@@ -5,8 +5,6 @@ import { ItemList } from '../ItemList/ItemList';
 
 import { getProducts } from '../../firebase/firebase';
 
-import './ItemListContainer.css';
-
 export const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
@@ -15,17 +13,17 @@ export const ItemListContainer = () => {
     useEffect(() => {
         getProducts()
             .then(query => {
-                const filteredQuery = query.filter(product => product.stock > 0)
-                setProducts(filteredQuery)
+                const products = query.filter(product => product.stock > 0)
+                setProducts(products)
                 if(category) {
-                    const categorizedQuery = filteredQuery.filter(product => product.category === category)
-                    setProducts(categorizedQuery)
+                    const categoryProducts = products.filter(product => product.category === category)
+                    setProducts(categoryProducts)
                 }      
                 })
     }, [category])
 
     return (
-        <div className='row product-container'>
+        <div className='item-list-container'>
             <ItemList products={products} template="Item" />
         </div>
     );
