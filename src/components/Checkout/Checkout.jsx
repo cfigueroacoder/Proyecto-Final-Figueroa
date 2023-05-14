@@ -3,8 +3,6 @@ import { useCartContext } from '../../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { createOrder, getProduct, updateProduct } from '../../firebase/firebase';
 
-import { toast } from 'react-toastify';
-
 export const Checkout = () => {
 
     const clientForm = useRef() // Crear una referencia para consultar los valores actuales del formulario
@@ -35,17 +33,6 @@ export const Checkout = () => {
             .then(order => {
                 emptyCart()
                 e.target.reset()
-                toast(`Muchas gracias por comprar con nosotros, su ID de compra es ${order.id}, en breve nos contactaremos para coordinar el envio`, {
-                    icon: '👌',
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
                 navigate('/')
              })
              .catch(e => console.error(e))

@@ -9,11 +9,12 @@ export const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        getProduct(id).then(query => { setItem(query) })
+        getProduct(id)
+            .then(query => { setItem(query) })
     }, [id])
     
     return (
-        <div className="card mb-3 container itemDetail">
+        <div className="item-detail-container">
             <ItemDetail item={item} />
         </div>
     );

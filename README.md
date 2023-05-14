@@ -18,4 +18,3 @@ Entrar a `localhost:3000` si no se abre automaticamente
 * [React](https://react.dev/) - Framework de JS para Frontend
 * [Firebase](https://firebase.google.com/) - Base de datos y contenido
 * [Visual Studio Code](https://code.visualstudio.com/) - Editor de código fuente
-* [React-Tostify](https://fkhadra.github.io/react-toastify/introduction/) - Notificaciones

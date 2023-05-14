@@ -9,19 +9,18 @@ export const ItemDetail = ({item}) => {
     }
 
     return (
-        <div className='item-detail row g-0'>
-            <div className="col-md-4">
-                <img src={item.img} alt={`Imagen de ${item.name}`} className="img-fluid rounded-start" />
-            </div>
-            <div className="col-md-8">
-                <div className="card-body">
-                    <h5 className="card-title">{item.name}</h5>
-                    <p className="card-text">Marca: {item.vendor}</p>
-                    <p className="card-text">$ {item.value}</p>
-                    <p className="card-text">Stock: {item.stock}</p>
-                    <ItemCount  initialValue={1} min={1} max={item.stock} onAdd={onAdd}/>
+        <>
+            <img src={item.img} alt={`Imagen de ${item.name}`} className="item-detail-img" />
+            <div className="item-detail-right">
+                <div className="item-detail-info">
+                    <p className="name">{item.name}</p>
+                    <p className="vendor">{item.vendor}</p>
+                    <p className="value">$ {item.value}</p>
+                    <p className="stock">Stock: {item.stock}</p>
                 </div>
+                <hr />
+                <ItemCount  initialValue={1} min={1} max={item.stock} onAdd={onAdd}/>
             </div>
-        </div>
+        </>
     );
 }
