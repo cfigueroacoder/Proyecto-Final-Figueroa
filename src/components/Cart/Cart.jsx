@@ -8,18 +8,23 @@ export const Cart = () => {
         <>
             {
                 cart.length === 0 ?
-                    <>
-                        <h1>Carrito Vacio</h1>
-                        <button className="btn btn-dark"><Link to={"/"} className="nav-link">Seguir Comprando</Link></button>
-                    </>
+                    <div className="empty-cart">
+                        <p>Tu carrito esta vacío</p>
+                        <Link to={"/"}><button>Volver a la tienda</button></Link>
+                    </div>
                     :
-                    <div className="container cartContainer">
-                        {<ItemList products={cart} template={"itemCart"}/>}
-                        <div className="cartButtons">
-                            <p>Resumen de la compra: ${getTotal()}</p>
-                            <button className="btn btn-danger" onClick={() => emptyCart()}>Vaciar Carrito</button>
-                            <button className="btn btn-dark"><Link to={"/"} className="nav-link">Seguir Comprando</Link></button>
-                            <button className="btn btn-dark"><Link to={"/checkout"} className="nav-link">Finalizar Compra</Link></button>
+                    <div className="cart-container">
+                        <div className="cart-card-container">
+                            {<ItemList products={cart} template={"itemCart"}/>}
+                        </div>
+                        <div className="cart-info">
+                            <p>Total de la compra: ${getTotal()}</p>
+                            <hr />
+                            <div className="cart-buttons">
+                                <button className="empty" onClick={() => emptyCart()}>Vaciar Carrito</button>
+                                {/*<button className="btn btn-dark"><Link to={"/"} className="nav-link">Seguir Comprando</Link></button>*/}
+                                <Link to={"/checkout"}><button className="proceed">Ir a Checkout</button></Link>
+                            </div>
                         </div>
                     </div>
 

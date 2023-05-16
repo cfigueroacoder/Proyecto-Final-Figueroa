@@ -19,7 +19,7 @@ export const ItemDetail = ({item}) => {
                     <p className="stock">Stock: {item.stock}</p>
                 </div>
                 <hr />
-                <ItemCount  initialValue={1} min={1} max={item.stock} onAdd={onAdd}/>
+                <ItemCount initialValue={1} min={1} max={item.stock} onAdd={onAdd}/>
             </div>
         </>
     );
