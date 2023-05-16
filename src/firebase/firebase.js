@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, getDoc, getDocs, deleteDoc, updateDoc, collection, doc } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: process.env.API_KEY, // key escondida en Vercel
   authDomain: "tienda-click-derecho.firebaseapp.com",
   projectId: "tienda-click-derecho",
   storageBucket: "tienda-click-derecho.appspot.com",
@@ -11,13 +11,11 @@ const firebaseConfig = {
   appId: "1:63102289783:web:b965999ae12a112ee44372"
 };
 
-// Initializar Firebase
 initializeApp(firebaseConfig);
 
-//Consultar DB
 const db = getFirestore()
 
-export const initDB = async () => {
+export const initDB = async () => { // primera inicializacion, si ya existe la base de datos no hay que llamar a esta funcion o se duplicaran los productos.
     const query = await fetch('./json/db.json')
     const items = await query.json()
 
@@ -64,11 +62,9 @@ export const getOrder = async (id) => {
 }
 
 export const updateProduct = async (id, info) => {
-    const state = await updateDoc(doc(db, 'products', id), info)
-    //console.log(state)
+    await updateDoc(doc(db, 'products', id), info)
 }
 
 export const deleteProduct = async (id) => {
-    const state = await deleteDoc(doc(db, 'products', id))
-    console.log(state)
+    await deleteDoc(doc(db, 'products', id))
 }

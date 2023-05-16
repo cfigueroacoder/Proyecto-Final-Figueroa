@@ -13,12 +13,12 @@ export const CartProvider = (props) => {
     }
 
     const addItem = (item, amount) => {
-        if(isInCart(item.id)) {
+        if(isInCart(item.id)) { // si ya hay de este producto en el carrito actualizamos la cantidad
             const newCart = [...cart]
             newCart[cart.findIndex(queryItem => queryItem.id === item.id)].amount = amount
 
             setCart(newCart)
-        } else {
+        } else { // si no hay, lo agregamos
             const newItem = {
                 ...item,
                 amount

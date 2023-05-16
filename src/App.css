@@ -220,6 +220,7 @@ hr {
     object-fit: contain;
     padding: 0.6rem;
     height: 100%;
+    max-width: 65%;
 }
 
 .item-detail-right {

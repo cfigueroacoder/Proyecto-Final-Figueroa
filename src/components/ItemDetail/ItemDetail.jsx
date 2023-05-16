@@ -1,6 +1,7 @@
 import { ItemCount } from "../ItemCount/ItemCount";
 import { useCartContext } from "../../context/CartContext";
 
+// detalle de algun producto en particular
 export const ItemDetail = ({item}) => {
     const { addItem } = useCartContext()
 

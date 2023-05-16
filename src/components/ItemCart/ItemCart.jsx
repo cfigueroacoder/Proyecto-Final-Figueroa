@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 
+
+// carta de producto que se muestra dentro del carrito
 export const ItemCart = ({ item }) => {
     const { removeItem } = useCartContext()
     return (

@@ -3,7 +3,7 @@ import { useState } from "react";
 export const useCount = (initialValue = 1, min, max) => {
     
     if(initialValue < min || initialValue > max) {
-        initialValue = min
+        initialValue = min // limitar el valor inicial dentro del rango
     }
 
     const [count, setCount] = useState(initialValue)

@@ -13,18 +13,16 @@ export const Checkout = () => {
     const [warning, setWarning] = useState(``)
 
     const submitForm = (e) => {
-        //Consultar los datos del formulario
         e.preventDefault()
-        const clientFormData = new FormData(clientForm.current) // pasar de HTML a objeto iterable
-        const clientData = Object.fromEntries(clientFormData) // pasar de objeto iterable a objeto simple
-
+        const clientData = Object.fromEntries(new FormData(clientForm.current)) // obtener los datos del cliente del formulario
         const aux =[...cart]
         
-        if(clientData.email !== clientData.email2) {
+        if(clientData.email !== clientData.email2) { // si los email no son los mismos, no proceder con la compra y informar al usuario
             setWarning(`Los emails ingresados son diferentes`)
             return
         }
 
+        // por cada item en el carrito revisamos si hay suficiente stock, si hay lo restamos del inventario.
         aux.forEach(item => {
             getProduct(item.id)
                 .then(queryItem => {
@@ -37,9 +35,10 @@ export const Checkout = () => {
                 })
         })
 
+        // creamos la orden y la guardamos en firebase, omostrando al usuario un mensaje de confirmacion
         createOrder(clientData, getTotal(), aux.map(item => ({ id: item.id, amount: item.amount, value: item.value })), new Date().toISOString())
             .then(order => {
-                alert("Muchas gracias por tu compra! Nos comunicaremos pronto para coordinar el pago y la entrega");
+                alert(`Muchas gracias por tu compra! Nos comunicaremos pronto para coordinar el pago y la entrega. Código de orden [${order.id}]`);
                 emptyCart()
                 e.target.reset()
                 navigate('/')

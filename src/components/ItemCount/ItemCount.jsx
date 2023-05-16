@@ -1,16 +1,15 @@
 import { useCount } from "../../hooks/useCount";
 
+//contador de productos para agregar al carrito, que se agrega desde la pagina de detalle de algun producto
 export const ItemCount = ({ initialValue, min, max, onAdd }) => {
 
     const {count, incrementCounter, decrementCounter} = useCount(initialValue, min, max)
 
-    if (max < min)
-        console.log("no stock of item")
-
     return (
         <div className="item-detail-buttons">
-            {
-                max < min ?
+            {// revisamos si max esta definido para no mostrar botones mientras se carga la página
+                max === undefined ? <></>:
+                !max ?
                 <p>Producto fuera de stock</p>
                 :
                 <>
