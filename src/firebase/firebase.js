@@ -65,7 +65,7 @@ export const getOrder = async (id) => {
 
 export const updateProduct = async (id, info) => {
     const state = await updateDoc(doc(db, 'products', id), info)
-    console.log(state)
+    //console.log(state)
 }
 
 export const deleteProduct = async (id) => {

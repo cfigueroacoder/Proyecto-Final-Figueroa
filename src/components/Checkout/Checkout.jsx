@@ -39,7 +39,7 @@ export const Checkout = () => {
 
         createOrder(clientData, getTotal(), aux.map(item => ({ id: item.id, amount: item.amount, value: item.value })), new Date().toISOString())
             .then(order => {
-                console.log(order)
+                alert("Muchas gracias por tu compra! Nos comunicaremos pronto para coordinar el pago y la entrega");
                 emptyCart()
                 e.target.reset()
                 navigate('/')
