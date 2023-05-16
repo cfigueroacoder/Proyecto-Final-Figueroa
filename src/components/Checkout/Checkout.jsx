@@ -64,7 +64,7 @@ export const Checkout = () => {
                     <label htmlFor="email" className='form-label'>Email</label>
                     <input type="email" className='' name='email' required={true} />
                     <label htmlFor="email2" className='form-label'>Repetir Email</label>
-                    <input type="email" className='' name='email2' required={true} />
+                    <input type="email" className='' name='email2' required={true} autocomplete="off" />
                     <label htmlFor="dni" className='form-label'>DNI</label>
                     <input type="number" className='' name='dni' required={true} />
                     <label htmlFor="phone" className='form-label'>Numero Telefónico</label>
